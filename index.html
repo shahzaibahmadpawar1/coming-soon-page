@@ -14,11 +14,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <style>
-        /* CSS Variables for Premium Light Design System */
+        /* CSS Variables for Premium Design System */
         :root {
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --accent-indigo: #4f46e5;
+            --text-primary: #ffffff;
+            --text-secondary: #e2e8f0;
+            --accent-indigo: #818cf8;
             --font-display: 'Outfit', sans-serif;
             --font-body: 'Plus Jakarta Sans', sans-serif;
         }
@@ -49,16 +49,14 @@
             color: var(--text-primary);
         }
 
-        /* Background blur & tint overlay for premium contrast */
+        /* Subtle dark vignette overlay for legibility (no blur) */
         .bg-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(248, 250, 252, 0.4);
-            backdrop-filter: blur(5px);
-            -webkit-backdrop-filter: blur(5px);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.35) 0%, rgba(15, 23, 42, 0.55) 100%);
             z-index: 1;
         }
 
@@ -66,22 +64,18 @@
         .wrapper {
             position: relative;
             width: 100%;
-            max-width: 500px;
+            max-width: 540px;
             padding: 20px;
             z-index: 2;
         }
 
-        /* Glassmorphic Central Card */
+        /* Minimalist container directly on background (no card block) */
         .main-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(20px) saturate(180%);
-            -webkit-backdrop-filter: blur(20px) saturate(180%);
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            border-radius: 28px;
-            padding: 4rem 3rem;
+            background: transparent;
+            border: none;
+            padding: 2rem 1rem;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.15),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            box-shadow: none;
             opacity: 0;
             transform: translateY(30px) scale(0.95);
             animation: cardEntrance 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -96,11 +90,11 @@
 
         /* Brand Identity Logo */
         .brand-logo-img {
-            max-height: 70px;
-            max-width: 250px;
+            max-height: 85px;
+            max-width: 220px;
             object-fit: contain;
             margin-bottom: 2rem;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.02));
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.3));
         }
 
         /* Status Indicator */
@@ -108,17 +102,19 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: rgba(79, 70, 229, 0.06);
-            border: 1px solid rgba(79, 70, 229, 0.1);
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 50px;
-            padding: 6px 16px;
-            margin-bottom: 1.5rem;
+            padding: 6px 18px;
+            margin-bottom: 1.75rem;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
         }
 
         .status-dot {
             width: 8px;
             height: 8px;
-            background-color: var(--accent-indigo);
+            background-color: #34d399; /* emerald green */
             border-radius: 50%;
             position: relative;
         }
@@ -130,7 +126,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: var(--accent-indigo);
+            background-color: #34d399;
             border-radius: 50%;
             animation: pulseDot 2s infinite ease-in-out;
         }
@@ -150,39 +146,46 @@
             font-size: 0.75rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--accent-indigo);
+            letter-spacing: 1.5px;
+            color: #ffffff;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* Headings & Descriptions */
         h1.title {
             font-family: var(--font-display);
             font-weight: 800;
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             line-height: 1.2;
             letter-spacing: -0.5px;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #0f172a 30%, var(--accent-indigo) 100%);
+            margin-bottom: 1.25rem;
+            background: linear-gradient(135deg, #ffffff 40%, #c7d2fe 100%);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.2));
         }
 
         p.description {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.6;
             color: var(--text-secondary);
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
             margin: 0;
         }
 
         /* Responsive Breakpoints */
         @media (max-width: 640px) {
             .main-card {
-                padding: 3rem 1.5rem;
+                padding: 1.5rem 0.5rem;
             }
 
             h1.title {
-                font-size: 1.85rem;
+                font-size: 2.25rem;
+            }
+
+            p.description {
+                font-size: 1rem;
             }
         }
     </style>
@@ -190,7 +193,7 @@
 
 <body>
 
-    <!-- Background Tint & Blur Overlay -->
+    <!-- Background Tint Overlay (No Blur) -->
     <div class="bg-overlay"></div>
 
     <!-- Central Wrapper for centering elements -->
@@ -198,7 +201,7 @@
         <main class="main-card">
             <!-- Header / Logo -->
             <header>
-                <img src="nocastraLogo.png" alt="Nocastra Logo" class="brand-logo-img">
+                <img src="Logo.png" alt="Nocastra Logo" class="brand-logo-img">
             </header>
 
             <!-- Status Indicator -->

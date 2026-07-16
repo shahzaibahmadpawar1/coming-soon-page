@@ -7,5 +7,4 @@ deployment:
     - export DEPLOYPATH=/home/nocastra/public_html/
     - /bin/cp index.html $DEPLOYPATH
     - /bin/cp Logo.png $DEPLOYPATH
-    - /bin/cp nocastraLogo.png $DEPLOYPATH
     - /bin/cp Gemini_Generated_Image_fsrbdrfsrbdrfsrb.png $DEPLOYPATH
