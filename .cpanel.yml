@@ -1,11 +1,11 @@
 # cPanel Git Deployment Configuration
 # Guide: https://docs.cpanel.net/knowledge-base/web-services/guide-to-git-deployment/
-#
-# IMPORTANT: Replace 'YOUR_CPANEL_USERNAME' below with your actual cPanel username.
-# You can find this in your cPanel dashboard (often under User Manager or Account Information).
 
 ---
 deployment:
   tasks:
     - export DEPLOYPATH=/home/nocastra/public_html/
     - /bin/cp index.html $DEPLOYPATH
+    - /bin/cp Logo.png $DEPLOYPATH
+    - /bin/cp nocastraLogo.png $DEPLOYPATH
+    - /bin/cp Gemini_Generated_Image_fsrbdrfsrbdrfsrb.png $DEPLOYPATH
